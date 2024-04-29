@@ -92,6 +92,10 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
+html {
+  width: 100%;
+}
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -277,6 +281,17 @@ button {
   );
   box-shadow: 0px 8px 30px 0px #0a021733;
 }
+
+.row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.row .col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 /* ------ CUSTOM ------ */
 
 /* HEADER */
@@ -422,10 +437,11 @@ header {
     .service-box {
       padding: 0 100px 0 100px;
       width: 100%;
+      display: inline-grid;
+      grid-template-columns: auto auto;
       .service-item {
         box-shadow: 0px 8px 25px 0px #0000001a;
         padding: 25px;
-        width: 50%;
         margin: 10px;
         span {
           margin-left: 25px;
@@ -452,30 +468,35 @@ header {
 }
 
 .services-bottom {
-  .services-bottom-img {
-    width: 490px;
-    height: 440px;
-  }
-  padding: 50px 0;
-  .services-bottom-text {
-    h3 {
-      font-size: 1.3rem;
+  .container {
+    display: grid;
+    grid-template-columns: auto auto;
+
+    .services-bottom-img {
+      width: 490px;
+      height: 440px;
     }
-    p {
-      font-size: 0.8rem;
-      font-weight: 300;
-      margin: 1rem 0;
-    }
-    .services-bottom-list {
-      li {
-        font-size: 0.7rem;
-        font-weight: 300;
+    padding: 50px 0;
+    .services-bottom-text {
+      h3 {
+        font-size: 26px;
       }
-      .services-bottom-list-icon {
-        margin-top: 5px;
-        margin-right: 5px;
-        width: 30px;
-        height: 30px;
+      p {
+        font-size: 16px;
+        font-weight: 300;
+        margin: 1rem 0;
+      }
+      .services-bottom-list {
+        li {
+          font-size: 14px;
+          font-weight: 300;
+          margin-bottom: 10px;
+        }
+        .services-bottom-list-icon {
+          margin-right: 5px;
+          width: 45px;
+          height: 45px;
+        }
       }
     }
   }
@@ -484,11 +505,16 @@ header {
 /* Seven Steps */
 .seven-steps {
   background-color: #dbd9ff;
-  /* background: linear-gradient(
+  background: linear-gradient(
     90deg,
     rgba(219, 217, 255, 1) 55%,
-    rgba(255, 255, 255, 1) 100%
-  ); */
+    rgb(218 211 212) 100%
+  );
+
+  .steps {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
 
   .step {
     margin: 0 10px;
@@ -544,14 +570,14 @@ header {
       margin-bottom: 30px;
     }
     .event-wrapper {
+      display: grid;
+      grid-template-columns: auto auto;
       .webinar-box {
-        width: 570px;
-        max-width: 570px;
         box-shadow: 0px 6px 50px 0px #0000001a;
         border-radius: 15px;
         text-align: left;
+        max-width: 570px;
         img {
-          max-width: 490px;
         }
         .webinar-info-box {
           padding: 30px;
@@ -581,9 +607,13 @@ header {
       .events-box {
         margin-left: 20px;
         text-align: left;
+        display: grid;
+        grid-template-columns: auto;
         .new-zealand {
+          display: grid;
+          grid-template-columns: auto auto;
           box-shadow: 0px 6px 50px 0px #0000001a;
-          height: 230px;
+          max-height: 230px;
           border-radius: 15px;
           img {
             max-height: 230px;
@@ -618,6 +648,8 @@ header {
         }
 
         .uk {
+          display: grid;
+          grid-template-columns: auto auto;
           margin-top: 10px;
           box-shadow: 0px 6px 50px 0px #0000001a;
           height: 230px;
@@ -662,8 +694,16 @@ header {
 
 .testimonials {
   background-color: #ffdcd8;
+
   .carousel {
-    position: relative;
+    /* position: relative; */
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+  .card-wrap {
+    display: grid;
+    grid-template-columns: auto auto auto;
   }
   .testimonial-card {
     width: 300px;
@@ -709,6 +749,10 @@ header {
 
 /* KC Updates */
 .kc-updates {
+  .kc-updates-cards {
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+  }
   .hiring-card {
     background-color: #fdaf4d;
     padding: 2rem;
@@ -815,6 +859,126 @@ header {
       color: gray;
     }
     subscribe-btn {
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .services-top {
+    margin-top: 10px;
+    .container {
+      h1 {
+        font-size: 26px;
+        margin-bottom: 10px;
+      }
+      .service-box {
+        padding: 0 10px 0 10px;
+        width: 100%;
+        display: inline-grid;
+        grid-template-columns: auto;
+        .service-item {
+          /* box-shadow: 0px 8px 25px 0px #0000001a;
+          padding: 25px;
+          margin: 10px; */
+          span {
+            margin-left: 25px;
+            font-size: 14px;
+          }
+        }
+      }
+      .service-enquiry {
+        font-size: 14px;
+      }
+    }
+  }
+  .services-bottom {
+    .container {
+      display: inline-grid;
+      grid-template-columns: auto;
+      align-item: center;
+      padding: 30px;
+      .services-bottom-img {
+        width: 331px;
+        height: 298px;
+        margin-bottom: 30px;
+      }
+      .services-bottom-text {
+        h3 {
+          font-size: 26px;
+          text-align: center;
+        }
+        p {
+          font-size: 16px;
+          font-weight: 300;
+          margin: 1rem 0;
+        }
+        .services-bottom-list {
+          li {
+            font-size: 12px;
+            font-weight: 300;
+          }
+          .services-bottom-list-icon {
+            margin-right: 5px;
+            width: 30px;
+            height: 30px;
+          }
+        }
+      }
+    }
+  }
+  .section-heading {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+  .seven-steps {
+    padding-left: 8px;
+    .steps {
+      display: inline-grid;
+    }
+  }
+
+  .webinars {
+    .container {
+      padding: 0 20px 0 10px;
+      h1 {
+        font-size: 26px;
+        margin-bottom: 30px;
+      }
+      .event-wrapper {
+        .webinar-box {
+          max-width: 400px;
+          .webinar-image {
+            max-width: 400px;
+          }
+        }
+        .events-box {
+          .new-zealand {
+            max-height: 125px;
+            .webinar-image {
+              max-height: 125px;
+            }
+          }
+          .uk {
+            max-height: 125px;
+            .webinar-image {
+              max-height: 125px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .testimonials {
+    .card-wrap {
+      display: grid;
+    }
+  }
+
+  .kc-updates {
+    .hiring-card {
+      width:250px;
+      text-align:center;
+      
     }
   }
 }
