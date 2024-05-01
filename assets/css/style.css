@@ -297,7 +297,7 @@ button {
 /* HEADER */
 header {
   background: url("/assets/images/banner.png");
-  background-repeat: no-repeat;
+  background-repeat: round;
   background-size: cover;
   height: 500px;
   font-weight: 400;
@@ -321,6 +321,10 @@ header {
         font-size: 0.9rem;
       }
     }
+  }
+  .nav-toggler{
+    display:none;
+    visibility:hidden;
   }
 }
 
@@ -384,6 +388,8 @@ header {
       img {
         height: 48px;
         width: 48px;
+        margin-top: 5px;
+        margin-right: -5px;
       }
       span {
         color: #fff;
@@ -437,14 +443,20 @@ header {
     .service-box {
       padding: 0 100px 0 100px;
       width: 100%;
-      display: inline-grid;
+      display: grid;
       grid-template-columns: auto auto;
       .service-item {
+        display: grid;
+        grid-template-columns: 1fr 10fr;
+        align-content: center;
+        align-items: center;
         box-shadow: 0px 8px 25px 0px #0000001a;
         padding: 25px;
         margin: 10px;
+        min-width: 500px;
         span {
           margin-left: 25px;
+          justify-self: self-start;
         }
       }
     }
@@ -471,7 +483,7 @@ header {
   .container {
     display: grid;
     grid-template-columns: auto auto;
-
+    align-items: center;
     .services-bottom-img {
       width: 490px;
       height: 440px;
@@ -750,8 +762,9 @@ header {
 /* KC Updates */
 .kc-updates {
   .kc-updates-cards {
-    display: inline-grid;
+    display: grid;
     grid-template-columns: auto auto auto;
+    justify-content:center;
   }
   .hiring-card {
     background-color: #fdaf4d;
@@ -876,10 +889,11 @@ header {
         width: 100%;
         display: inline-grid;
         grid-template-columns: auto;
+
         .service-item {
-          /* box-shadow: 0px 8px 25px 0px #0000001a;
-          padding: 25px;
-          margin: 10px; */
+          min-width: auto;
+          /* display: grid;
+          grid-template-columns:auto; */
           span {
             margin-left: 25px;
             font-size: 14px;
@@ -934,6 +948,12 @@ header {
     padding-left: 8px;
     .steps {
       display: inline-grid;
+      .step {
+        margin: 0 50px;
+      }
+      .step-two {
+        display: none;
+      }
     }
   }
 
@@ -948,10 +968,11 @@ header {
         .webinar-box {
           max-width: 400px;
           .webinar-image {
-            max-width: 400px;
+            max-width: 385px;
           }
         }
         .events-box {
+          display: none;
           .new-zealand {
             max-height: 125px;
             .webinar-image {
@@ -972,13 +993,132 @@ header {
     .card-wrap {
       display: grid;
     }
+
+    .container {
+      .carousel {
+        .card-wrap {
+          .testimonial-card {
+            margin: 0;
+            max-width: 270px;
+          }
+        }
+        .card-wrap .testimonial-card:nth-child(3) {
+          display: none;
+        }
+        .card-wrap .testimonial-card:nth-child(2) {
+          display: none;
+        }
+      }
+    }
   }
 
   .kc-updates {
+    .kc-updates-cards {
+      display: grid;
+      grid-template-columns: auto;
+    }
     .hiring-card {
-      width:250px;
-      text-align:center;
-      
+      text-align: center;
+    }
+    .update-card {
+      display: none;
+    }
+  }
+  header {
+    background: url("/assets/images/header-bg-small.png");
+    background-repeat: round;
+    background-size: cover;
+    padding-top: 25px;
+    .nav-menu {
+      display: none;
+    }
+    .container {
+      .logo {
+        img {
+          height: 30px;
+        }
+      }
+      .nav-toggler {
+        margin-top: -10px;
+        display:block;
+        visibility:visible;
+      }
+    }
+  }
+  .hero-star-1,
+  .hero-star-2,
+  .hero-star-3,
+  .hero-ellipsis-1,
+  .hero-ellipsis-2,
+  .hero-ring {
+    display: none;
+  }
+
+  .hero {
+    margin: 15px;
+    .container {
+      .hero-small {
+        margin-bottom: 1rem;
+      }
+      .hero-main-text {
+        h1 {
+          font-size: 22px;
+        }
+        img {
+          display: none;
+        }
+      }
+      .hero-info {
+        margin-top: 1rem;
+      }
+      .hero-action {
+        flex-direction: column;
+        .hero-enquiry {
+          margin-bottom: 5px;
+          font-size: 14px;
+        }
+        .hero-address-btn {
+          font-size: 14px;
+          img {
+            height: 40px;
+            width: 40px;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    background: url("/assets/images/footer-bg-small.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top:0;
+    min-height:470px;
+    .container{
+      .footer-union{
+        height:60px;
+        width:60px;
+        left:10px;
+      }
+      .footer-heading{
+        font-size:26px;
+      }
+      .input-group{
+        flex-direction:column;
+        padding:50px;
+        margin-top:0!important;
+        input{
+          margin-bottom:20px;
+          margin-right:0px !important;
+        }
+        select{
+          margin-bottom:20px;
+        }
+        .primary-btn{
+          margin:0 !important;
+          font-size:14px !important;
+        }
+      }
     }
   }
 }
